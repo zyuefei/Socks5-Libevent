@@ -11,11 +11,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-// #include <pjlib-util.h>
-// #include <pjlib.h>
+#include <pjlib-util/hmac_sha1.h>
 
-#include <openssl/evp.h>
-#include <openssl/hmac.h>
+// #include <openssl/evp.h>
+// #include <openssl/hmac.h>
 
 #include "util_sys.h"
 #include "util_crypto.h"
@@ -746,7 +745,7 @@ int turn_generate_transaction_id(uint8_t* id) {
 
 
 int turn_calculate_integrity_hmac_iov(const struct iovec* iov, size_t iovlen, const unsigned char* key, size_t key_len, unsigned char* integrity) {
-#if 0
+#if 1
     pj_hmac_sha1_context ctx;
     unsigned int md_len = 20;
     size_t i = 0;
